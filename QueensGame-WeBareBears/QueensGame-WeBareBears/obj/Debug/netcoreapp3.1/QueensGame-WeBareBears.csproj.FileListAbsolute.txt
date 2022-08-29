@@ -1,0 +1,28 @@
+C:\Users\nikol\OneDrive\Работен плот\QueensGame-WeBareBears\QueensGame-WeBareBears\bin\Debug\netcoreapp3.1\QueensGame-WeBareBears.exe
+C:\Users\nikol\OneDrive\Работен плот\QueensGame-WeBareBears\QueensGame-WeBareBears\bin\Debug\netcoreapp3.1\QueensGame-WeBareBears.deps.json
+C:\Users\nikol\OneDrive\Работен плот\QueensGame-WeBareBears\QueensGame-WeBareBears\bin\Debug\netcoreapp3.1\QueensGame-WeBareBears.runtimeconfig.json
+C:\Users\nikol\OneDrive\Работен плот\QueensGame-WeBareBears\QueensGame-WeBareBears\bin\Debug\netcoreapp3.1\QueensGame-WeBareBears.runtimeconfig.dev.json
+C:\Users\nikol\OneDrive\Работен плот\QueensGame-WeBareBears\QueensGame-WeBareBears\bin\Debug\netcoreapp3.1\QueensGame-WeBareBears.dll
+C:\Users\nikol\OneDrive\Работен плот\QueensGame-WeBareBears\QueensGame-WeBareBears\bin\Debug\netcoreapp3.1\QueensGame-WeBareBears.pdb
+C:\Users\nikol\OneDrive\Работен плот\QueensGame-WeBareBears\QueensGame-WeBareBears\obj\Debug\netcoreapp3.1\QueensGame-WeBareBears.csproj.AssemblyReference.cache
+C:\Users\nikol\OneDrive\Работен плот\QueensGame-WeBareBears\QueensGame-WeBareBears\obj\Debug\netcoreapp3.1\QueensGame-WeBareBears.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nikol\OneDrive\Работен плот\QueensGame-WeBareBears\QueensGame-WeBareBears\obj\Debug\netcoreapp3.1\QueensGame-WeBareBears.AssemblyInfoInputs.cache
+C:\Users\nikol\OneDrive\Работен плот\QueensGame-WeBareBears\QueensGame-WeBareBears\obj\Debug\netcoreapp3.1\QueensGame-WeBareBears.AssemblyInfo.cs
+C:\Users\nikol\OneDrive\Работен плот\QueensGame-WeBareBears\QueensGame-WeBareBears\obj\Debug\netcoreapp3.1\QueensGame-WeBareBears.csproj.CoreCompileInputs.cache
+C:\Users\nikol\OneDrive\Работен плот\QueensGame-WeBareBears\QueensGame-WeBareBears\obj\Debug\netcoreapp3.1\QueensGame-WeBareBears.dll
+C:\Users\nikol\OneDrive\Работен плот\QueensGame-WeBareBears\QueensGame-WeBareBears\obj\Debug\netcoreapp3.1\QueensGame-WeBareBears.pdb
+C:\Users\nikol\OneDrive\Работен плот\QueensGame-WeBareBears\QueensGame-WeBareBears\obj\Debug\netcoreapp3.1\QueensGame-WeBareBears.genruntimeconfig.cache
+D:\Dani\Programming-open\azMogaTukISega\QueensGame-WeBareBears\QueensGame-WeBareBears\bin\Debug\netcoreapp3.1\QueensGame-WeBareBears.exe
+D:\Dani\Programming-open\azMogaTukISega\QueensGame-WeBareBears\QueensGame-WeBareBears\bin\Debug\netcoreapp3.1\QueensGame-WeBareBears.deps.json
+D:\Dani\Programming-open\azMogaTukISega\QueensGame-WeBareBears\QueensGame-WeBareBears\bin\Debug\netcoreapp3.1\QueensGame-WeBareBears.runtimeconfig.json
+D:\Dani\Programming-open\azMogaTukISega\QueensGame-WeBareBears\QueensGame-WeBareBears\bin\Debug\netcoreapp3.1\QueensGame-WeBareBears.runtimeconfig.dev.json
+D:\Dani\Programming-open\azMogaTukISega\QueensGame-WeBareBears\QueensGame-WeBareBears\bin\Debug\netcoreapp3.1\QueensGame-WeBareBears.dll
+D:\Dani\Programming-open\azMogaTukISega\QueensGame-WeBareBears\QueensGame-WeBareBears\bin\Debug\netcoreapp3.1\QueensGame-WeBareBears.pdb
+D:\Dani\Programming-open\azMogaTukISega\QueensGame-WeBareBears\QueensGame-WeBareBears\obj\Debug\netcoreapp3.1\QueensGame-WeBareBears.csproj.AssemblyReference.cache
+D:\Dani\Programming-open\azMogaTukISega\QueensGame-WeBareBears\QueensGame-WeBareBears\obj\Debug\netcoreapp3.1\QueensGame-WeBareBears.GeneratedMSBuildEditorConfig.editorconfig
+D:\Dani\Programming-open\azMogaTukISega\QueensGame-WeBareBears\QueensGame-WeBareBears\obj\Debug\netcoreapp3.1\QueensGame-WeBareBears.AssemblyInfoInputs.cache
+D:\Dani\Programming-open\azMogaTukISega\QueensGame-WeBareBears\QueensGame-WeBareBears\obj\Debug\netcoreapp3.1\QueensGame-WeBareBears.AssemblyInfo.cs
+D:\Dani\Programming-open\azMogaTukISega\QueensGame-WeBareBears\QueensGame-WeBareBears\obj\Debug\netcoreapp3.1\QueensGame-WeBareBears.csproj.CoreCompileInputs.cache
+D:\Dani\Programming-open\azMogaTukISega\QueensGame-WeBareBears\QueensGame-WeBareBears\obj\Debug\netcoreapp3.1\QueensGame-WeBareBears.dll
+D:\Dani\Programming-open\azMogaTukISega\QueensGame-WeBareBears\QueensGame-WeBareBears\obj\Debug\netcoreapp3.1\QueensGame-WeBareBears.pdb
+D:\Dani\Programming-open\azMogaTukISega\QueensGame-WeBareBears\QueensGame-WeBareBears\obj\Debug\netcoreapp3.1\QueensGame-WeBareBears.genruntimeconfig.cache

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "n2HlApnHUxxmKk8XK7+9kBx+NOCzU2H755awqPNKS2sQpAjfzWFUtpR1SE7KqCQYTDIZmorApqryf0wH0Fs9Wg==",
+  "success": true,
+  "projectFilePath": "D:\\Dani\\Programming-open\\azMogaTukISega\\QueensGame-WeBareBears\\QueensGame-WeBareBears\\QueensGame-WeBareBears.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Daniel\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.22\\microsoft.netcore.app.host.win-x64.3.1.22.nupkg.sha512",
+    "C:\\Users\\Daniel\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512"
+  ],
+  "logs": []
+}
