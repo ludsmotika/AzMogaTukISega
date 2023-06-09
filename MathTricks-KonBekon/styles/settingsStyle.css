@@ -2,6 +2,16 @@ body {
   text-align: center;
 }
 
+.headerSettingsPage {
+  display: flex;
+}
+
+.sliderContainerSettingsPage {
+  width: 100%;
+  margin-top:5vh;
+  margin-bottom:5vh;
+}
+
 form {
   text-align: center;
   display: flex;
@@ -53,11 +63,11 @@ h2 {
   justify-content: center;
 }
 
-.settingsSoundOnImg{
+.settingsSoundOnImg {
   width: 8vw;
 }
 
-.settingsSoundOnImg:hover{
+.settingsSoundOnImg:hover {
   cursor: pointer;
   background-color: white;
   opacity: 0.1;

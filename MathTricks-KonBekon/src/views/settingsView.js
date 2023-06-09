@@ -1,18 +1,30 @@
 import { html } from '../library.js';
 
 let settingsView = () => html`
-<div class="container">
-    <h3 class="title">Settings</h3>
+<div>
+   
+    <h3 class="title titleSettingsPage">Settings</h3>
     <br>
     <br>
 
-    <h2 class="secondaryText">Background Music</h2>
-    
-
-       <img id="muteMusicImg" class="settingsSoundOnImg" src="../../resources/soundOff.png">
-
+    <h2 class="secondaryText">Background Music</h2> 
+      <img id="muteMusicImg" class="settingsSoundOnImg" src="../../resources/soundOff.png">
     <h2 class="secondaryText">Volume</h2>
-    <input type="range" id="volumeSlider" min="0" max="100" step="1" value="50">
+
+    <div class="sliderContainerSettingsPage">
+        <input type="range" id="volumeSlider" min="0" max="100" step="1" value="50">
+    </div>
+
+    <a href="/">
+       <button class="gameButton buttonSettingsPage" id="game">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Return
+       </button>
+    </a>
+
 </div>
 `;
 
@@ -29,11 +41,11 @@ export async function showSettings(ctx) {
         e.preventDefault();
         if (ctx.audio.paused == true) {
             ctx.audio.play();
-            e.target.src="../../resources/soundOn.png";
+            e.target.src = "../../resources/soundOn.png";
         }
         else {
             ctx.audio.pause();
-            e.target.src="../../resources/soundOff.png";
+            e.target.src = "../../resources/soundOff.png";
         }
     }
 

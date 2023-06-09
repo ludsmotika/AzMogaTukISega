@@ -12,9 +12,9 @@ const settingGameView = () => html`
     <input class="inputStyle" type="text" name="playerTwoName" required>
 
     <label class="secondaryText" for="nDimension">Columns count:</label>
-    <input class="inputStyle" type="number" name="nDimension" min="4" max="20" required>
+    <input class="inputStyle" type="number" name="nDimension" min="4" max="10" required>
     <label class="secondaryText" for="mDimension">Rows count:</label>
-    <input class="inputStyle" type="number" name="mDimension" min="4" max="20" required>
+    <input class="inputStyle" type="number" name="mDimension" min="4" max="10" required>
 
     <input type="submit" class="gameButton" value="Play">
   </form>
@@ -22,7 +22,7 @@ const settingGameView = () => html`
 `;
 
 
-export async function showSettingGame(ctx) {
+export async function showSettingMultiplayer(ctx) {
     ctx.render(settingGameView());
 
     let settingGameForm = document.getElementById("settingGameForm");

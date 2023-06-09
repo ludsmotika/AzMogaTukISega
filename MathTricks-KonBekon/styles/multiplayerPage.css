@@ -1,13 +1,23 @@
-.matrixContainer{
+.matrixContainer {
     display: grid;
     place-items: center;
-    grid-gap:0;
+    grid-gap: 0;
     cursor: pointer;
     user-select: none;
 }
-td{
+
+.scoreContainer {
+    display: flex;
+    width: 100%;
+}
+
+.nameAndScoreElement {
+    width: 100%;
+}
+
+td {
     border: 1px solid black;
-    color: black ;
+    color: black;
     background-color: white;
     padding: 10px;
     text-align: center;
@@ -16,32 +26,34 @@ td{
     font-size: 30px;
     transition: background 0.4s ease-in-out;
 }
-td:hover{
+
+td:hover {
     background: rgb(171, 170, 170);
 }
-.tdClickPlayerOne{
-    color: black ;
+
+.tdClickPlayerOne {
+    color: black;
     background-color: #00b0f0
 }
 
-.tdClickPlayerTwo{
-    color: black ;
+.tdClickPlayerTwo {
+    color: black;
     background-color: #92d050
 }
 
-.circle{
-    background-color:blue;
-    display:block;
-    height:50px;
-    width:50px;
-    border-radius:50%;
-    border:5px solid #000;
-    margin:auto;
-    color:#fff;
-    line-height:50px;
-    text-align:center
-  }
+.circle {
+    background-color: blue;
+    display: block;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 5px solid #000;
+    margin: auto;
+    color: #fff;
+    line-height: 50px;
+    text-align: center
+}
 
-.gameSection{
+.gameSection {
     text-align: center;
 }

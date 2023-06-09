@@ -30,13 +30,13 @@ export async function showChooseMode(ctx) {
   let singleplayerImg = document.getElementById("singleplayerImg");
   singleplayerImg.addEventListener('click', (e) => {
     e.preventDefault();
-    page.redirect("/settingGame");
+    page.redirect("/settingSinglePlayer");
   });
 
   let multiPlayerImg = document.getElementById("multiPlayerImg");
   multiPlayerImg.addEventListener('click', (e) => {
     e.preventDefault();
-    page.redirect("/settingGame");
+    page.redirect("/settingMultiplayer");
   });
 
 }

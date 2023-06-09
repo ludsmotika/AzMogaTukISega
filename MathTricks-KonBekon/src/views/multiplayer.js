@@ -1,9 +1,10 @@
 import { html, page } from '../library.js';
 
-let multiplayerView = (gameData, matrixElement) => html`
+let multiplayerView = (gameData, matrixElement, firstPlayerScore, secondPlayerScore) => html`
 <section class="gameSection">
     <div class="scoreContainer">
-        <h3 class="title">${gameData.playerOneName} | ${gameData.playerTwoName} </h3>
+        <h3 class="title nameAndScoreElement">${gameData.playerOneName}: ${firstPlayerScore}</h3>
+        <h3 class="title nameAndScoreElement">${gameData.playerTwoName}: ${secondPlayerScore}</h3>
     </div>
     ${matrixElement}
 </section>
@@ -47,97 +48,90 @@ export async function showMultiPlayerGame(ctx) {
         matrixELement.appendChild(tr);
     }
 
-    await ctx.render(multiplayerView(gameData, matrixELement));
+    await ctx.render(multiplayerView(gameData, matrixELement, 0, 0));
 
     document.getElementById("00").classList.add("tdClickPlayerOne");
     document.getElementById(`${gameData.mDimension - 1}${gameData.nDimension - 1}`).classList.add("tdClickPlayerTwo");
-}
 
-function move(gameData, e) {
 
-    //find the player who is on turn
-    let playerOnTurn = gameData.playerTurn;
+    async function move(gameData, e) {
 
-    let currentPlayerCoordinates = "00";
+        //find the player who is on turn
+        let playerOnTurn = gameData.playerTurn;
 
-    if (playerOnTurn == "playerOne") {
-        currentPlayerCoordinates = `${gameData.playerOneCoordinates[0]}${gameData.playerOneCoordinates[1]}`;
-    }
-    else {
-        currentPlayerCoordinates = `${gameData.playerTwoCoordinates[0]}${gameData.playerTwoCoordinates[1]}`;
-    }
+        let currentPlayerCoordinates = "00";
 
-    //find possible moves
-    //if it is from the available fields make the move
-    //get the td which the user clicked
-
-    let clickedTdCoordinates = e.target.id;
-    let clickedTd = document.getElementById(clickedTdCoordinates);
-    let allAllowedFields = allowedFields(currentPlayerCoordinates[0], currentPlayerCoordinates[1], gameData);
-
-    for (let field of allAllowedFields) {
-        console.log(field);
-        document.getElementById(field);
-    }
-
-    if (allAllowedFields.includes(clickedTdCoordinates)) {
-
-        //check which class to set based on the player
-        if (playerOnTurn == 'playerOne') {
-
-            gameData.playerOneScore = scoreAfterOperation(gameData.playerOneScore, clickedTd.textContent);
-            clickedTd.classList.add('tdClickPlayerOne');
-            gameData.playerOneCoordinates = [clickedTdCoordinates[0], clickedTdCoordinates[1]];
+        if (playerOnTurn == "playerOne") {
+            currentPlayerCoordinates = `${gameData.playerOneCoordinates[0]}${gameData.playerOneCoordinates[1]}`;
         }
         else {
-            gameData.playerTwoScore = scoreAfterOperation(gameData.playerTwoScore, clickedTd.textContent);
-            clickedTd.classList.add('tdClickPlayerTwo');
-            gameData.playerTwoCoordinates = [clickedTdCoordinates[0], clickedTdCoordinates[1]];
+            currentPlayerCoordinates = `${gameData.playerTwoCoordinates[0]}${gameData.playerTwoCoordinates[1]}`;
         }
-    }
-    else {
-        return;
-    }
 
+        //find possible moves
+        //if it is from the available fields make the move
+        //get the td which the user clicked
 
-    let hasFieldsOne = allowedFields(gameData.playerOneCoordinates[0], gameData.playerOneCoordinates[1], gameData);
-    let hasFieldsTwo = allowedFields(gameData.playerTwoCoordinates[0], gameData.playerTwoCoordinates[1], gameData);
-    if (hasFieldsOne == 0 || hasFieldsTwo == 0) {
+        let clickedTdCoordinates = e.target.id;
+        let clickedTd = document.getElementById(clickedTdCoordinates);
+        let allAllowedFields = allowedFields(currentPlayerCoordinates[0], currentPlayerCoordinates[1], gameData);
 
-        console.log(playerOnTurn);
+        for (const field of allAllowedFields) {
+            console.log(field);
+        }
 
-        if (playerOnTurn = "playerOne") {
+        if (allAllowedFields.includes(clickedTdCoordinates)) {
 
-            localStorage.setItem('playerWinner', gameData.playerOneName);
+            //check which class to set based on the player
+            if (playerOnTurn == 'playerOne') {
+
+                gameData.playerOneScore = scoreAfterOperation(gameData.playerOneScore, clickedTd.textContent);
+                clickedTd.classList.add('tdClickPlayerOne');
+                gameData.playerOneCoordinates = [clickedTdCoordinates[0], clickedTdCoordinates[1]];
+            }
+            else {
+                gameData.playerTwoScore = scoreAfterOperation(gameData.playerTwoScore, clickedTd.textContent);
+                clickedTd.classList.add('tdClickPlayerTwo');
+                gameData.playerTwoCoordinates = [clickedTdCoordinates[0], clickedTdCoordinates[1]];
+            }
+
+            await ctx.render(multiplayerView(gameData, matrixELement, gameData.playerOneScore, gameData.playerTwoScore));
         }
         else {
-            localStorage.setItem('playerWinner', gameData.playerTwoName);
-
+            return;
         }
 
-        if (gameData.playerOneScore > gameData.playerTwoScore) {
-            localStorage.setItem('bestScore', gameData.playerOneScore);
+
+        let hasFieldsOne = allowedFields(gameData.playerOneCoordinates[0], gameData.playerOneCoordinates[1], gameData);
+        let hasFieldsTwo = allowedFields(gameData.playerTwoCoordinates[0], gameData.playerTwoCoordinates[1], gameData);
+        if (hasFieldsOne == 0 || hasFieldsTwo == 0) {
+
+            if (gameData.playerOneScore > gameData.playerTwoScore) {
+                localStorage.setItem('bestScore', gameData.playerOneScore);
+                localStorage.setItem('playerWinner', gameData.playerOneName);
+            }
+            else {
+                localStorage.setItem('bestScore', gameData.playerTwoScore);
+                localStorage.setItem('playerWinner', gameData.playerTwoName);
+            }
+
+            page.redirect('/winner');
+        }
+        //click only on them 
+        let td = document.getElementById(`${currentPlayerCoordinates[0]}${currentPlayerCoordinates[1]}`);
+        td.classList.add("tdClickPlayerOne");
+
+
+        //changing the turn to the other player
+        if (gameData.playerTurn == "playerOne") {
+            gameData.playerTurn = "playerTwo";
         }
         else {
-            localStorage.setItem('bestScore', gameData.playerTwoScore);
+            gameData.playerTurn = "playerOne";
         }
-
-
-
-        page.redirect('/winner');
     }
-    //click only on them 
-    let td = document.getElementById(`${currentPlayerCoordinates[0]}${currentPlayerCoordinates[1]}`);
-    td.classList.add("tdClickPlayerOne");
 
 
-    //changing the turn to the other player
-    if (gameData.playerTurn == "playerOne") {
-        gameData.playerTurn = "playerTwo";
-    }
-    else {
-        gameData.playerTurn = "playerOne";
-    }
 }
 
 

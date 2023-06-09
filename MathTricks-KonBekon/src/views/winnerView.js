@@ -5,9 +5,11 @@ const winnerView = (winner, points) => html`
 
 <div id="confetti-container"></div>
 
-<p class="title">The winner is ${winner} with a score of: ${points}</p>
+<p class="title winnersPageTitle">The winner is ${winner} with a score of: ${points}</p>
+
+
 <a href="/chooseMode">
-<button class="gameButton" id="game">
+<button class="gameButton winnersPageButton" id="game">
     <span></span>
     <span></span>
     <span></span>
@@ -16,7 +18,7 @@ const winnerView = (winner, points) => html`
 </button>
 </a>
 <a href="/">
-<button class="gameButton" id="game">
+<button class="gameButton winnersPageButton" id="game">
     <span></span>
     <span></span>
     <span></span>

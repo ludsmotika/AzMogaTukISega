@@ -1,10 +1,12 @@
 import { page, render } from './library.js';
 import { showHelp } from './views/helpView.js';
-import { showSettingGame } from './views/settingGameView.js';
+import { showSettingMultiplayer } from './views/settingMultiPlayerView.js';
+import { showSettingSinglePlayer} from './views/settingSinglePlayerView.js';
 import { showChooseMode } from './views/chooseModeView.js';
 import { showHome } from './views/homeView.js';
 import { showSettings } from './views/settingsView.js';
 import { showMultiPlayerGame } from './views/multiplayer.js'
+import { showSinglePlayerGame } from './views/singlePlayer.js'
 import { showWinner } from './views/winnerView.js';
 
 
@@ -12,11 +14,12 @@ page(contextDecorator)
 page('/', showHome);
 page('/help', showHelp);
 page('/chooseMode', showChooseMode)
-page('/settingGame', showSettingGame);
+page('/settingMultiplayer', showSettingMultiplayer);
+page('/settingSinglePlayer', showSettingSinglePlayer);
 page('/settings', showSettings);
+page('/singlePlayer', showSinglePlayerGame);
 page('/multiPlayer', showMultiPlayerGame);
 page('/winner', showWinner);
-
 let mainElement = document.getElementById("mainPage");
 let audioElement = document.getElementById("myAudio");
 
