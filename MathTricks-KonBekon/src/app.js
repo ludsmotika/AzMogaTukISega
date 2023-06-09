@@ -12,7 +12,7 @@ page(contextDecorator)
 page('/', showHome);
 page('/help', showHelp);
 page('/chooseMode', showChooseMode)
-page('/settingGameView', showSettingGame);
+page('/settingGame', showSettingGame);
 page('/settings', showSettings);
 page('/multiPlayer', showMultiPlayerGame);
 page('/winner', showWinner);
@@ -20,9 +20,6 @@ page('/winner', showWinner);
 let mainElement = document.getElementById("mainPage");
 let audioElement = document.getElementById("myAudio");
 
-// window.addEventListener('DOMContentLoaded', () => {
-//     audioElement.play();
-// });
 
 page.start();
 page.redirect('/');

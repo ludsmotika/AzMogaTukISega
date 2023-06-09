@@ -5,16 +5,15 @@ const settingGameView = () => html`
 <div class="main-container">
 <h1 class="title">Welcome to the Game</h1>
 <form id="settingGameForm">
-<p class="chooseMode">Choose mode:</p>
     
-    <label class="labelFontsize" for="playerOneName">Player 1</label>
+    <label class="secondaryText" for="playerOneName">Player one name:</label>
     <input class="inputStyle" type="text" name="playerOneName" required>
-    <label class="labelFontsize" for="playerTwoName">Player 2</label>
+    <label class="secondaryText" for="playerTwoName">Player two name:</label>
     <input class="inputStyle" type="text" name="playerTwoName" required>
 
-    <label class="labelFontsize" for="nDimension">Columns count:</label>
+    <label class="secondaryText" for="nDimension">Columns count:</label>
     <input class="inputStyle" type="number" name="nDimension" min="4" max="20" required>
-    <label class="labelFontsize" for="mDimension">Rows count:</label>
+    <label class="secondaryText" for="mDimension">Rows count:</label>
     <input class="inputStyle" type="number" name="mDimension" min="4" max="20" required>
 
     <input type="submit" class="gameButton" value="Play">

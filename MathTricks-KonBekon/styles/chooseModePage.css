@@ -1,0 +1,22 @@
+.modesOptionsDiv{
+    display: flex;
+    flex-direction: row;
+}
+
+.modeOption{
+    align-items: center;
+    width: 100%;
+}
+
+.pictureOption{
+    width: 20vw;
+    margin-left: 12vw;
+    margin-right: 12vw;
+}
+
+.pictureOption:hover{
+    background-color: rgb(175, 175, 175);
+    border-radius: 15px;
+    opacity: 0.7;
+    cursor: pointer;
+}

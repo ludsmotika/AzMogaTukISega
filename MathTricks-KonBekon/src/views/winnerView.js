@@ -2,8 +2,11 @@ import { html } from '../library.js'
 
 const winnerView = (winner, points) => html`
 <section>
+
+<div id="confetti-container"></div>
+
 <p class="title">The winner is ${winner} with a score of: ${points}</p>
-<a href="/settingGameView">
+<a href="/chooseMode">
 <button class="gameButton" id="game">
     <span></span>
     <span></span>
@@ -26,8 +29,9 @@ const winnerView = (winner, points) => html`
 export async function showWinner(ctx) {
 
     let bestScore = JSON.parse(localStorage.getItem('bestScore'));
-    let winnerName =localStorage.playerWinner;
-
+    let winnerName = localStorage.playerWinner;
+    
     localStorage.clear();
-    ctx.render(winnerView(winnerName,bestScore));
+    ctx.render(winnerView(winnerName, bestScore));
+
 }

@@ -1,4 +1,4 @@
-import { html,page } from '../library.js';
+import { html, page } from '../library.js';
 
 let multiplayerView = (gameData, matrixElement) => html`
 <section class="gameSection">
@@ -75,6 +75,10 @@ function move(gameData, e) {
     let clickedTd = document.getElementById(clickedTdCoordinates);
     let allAllowedFields = allowedFields(currentPlayerCoordinates[0], currentPlayerCoordinates[1], gameData);
 
+    for (let field of allAllowedFields) {
+        console.log(field);
+        document.getElementById(field);
+    }
 
     if (allAllowedFields.includes(clickedTdCoordinates)) {
 
@@ -98,26 +102,26 @@ function move(gameData, e) {
 
     let hasFieldsOne = allowedFields(gameData.playerOneCoordinates[0], gameData.playerOneCoordinates[1], gameData);
     let hasFieldsTwo = allowedFields(gameData.playerTwoCoordinates[0], gameData.playerTwoCoordinates[1], gameData);
-    if(hasFieldsOne == 0 || hasFieldsTwo == 0){
+    if (hasFieldsOne == 0 || hasFieldsTwo == 0) {
 
         console.log(playerOnTurn);
 
-        if(playerOnTurn="playerOne"){
+        if (playerOnTurn = "playerOne") {
 
-        localStorage.setItem('playerWinner', gameData.playerOneName);
+            localStorage.setItem('playerWinner', gameData.playerOneName);
         }
-        else{
+        else {
             localStorage.setItem('playerWinner', gameData.playerTwoName);
 
         }
 
-        if( gameData.playerOneScore >gameData.playerTwoScore){
-            localStorage.setItem('bestScore',gameData.playerOneScore);
+        if (gameData.playerOneScore > gameData.playerTwoScore) {
+            localStorage.setItem('bestScore', gameData.playerOneScore);
         }
-        else{
-            localStorage.setItem('bestScore',gameData.playerTwoScore);
+        else {
+            localStorage.setItem('bestScore', gameData.playerTwoScore);
         }
-        
+
 
 
         page.redirect('/winner');
@@ -248,10 +252,13 @@ function allowedFields(m, n, gameData) {
 function scoreAfterOperation(currentScore, operation) {
     let result = 0;
 
-    if (operation.length==1) {
-        result = currentScore + parseInt(operation);
+    if (operation.length == 1) {
+
+        if (parseInt(operation) != 0) {
+            result = currentScore + parseInt(operation);
+        }
     }
-    else if(operation[0]=="-"){
+    else if (operation[0] == "-") {
         result = currentScore + parseInt(operation);
     }
     else {
