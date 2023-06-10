@@ -3,7 +3,7 @@ import { html, page } from '../library.js';
 const settingGameView = () => html`
 <section>
 <div class="main-container">
-<h1 class="title">Welcome to the Game</h1>
+<h1 class="title">Setting the game</h1>
 <form id="settingGameForm">
     
     <label class="secondaryText" for="playerOneName">Name:</label>

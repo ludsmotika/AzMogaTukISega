@@ -3,13 +3,13 @@ import { html, page } from '../library.js';
 const settingGameView = () => html`
 <section>
 <div class="main-container">
-<h1 class="title">Welcome to the Game</h1>
+<h1 class="title">Setting the game</h1>
 <form id="settingGameForm">
     
     <label class="secondaryText" for="playerOneName">Player one name:</label>
-    <input class="inputStyle" type="text" name="playerOneName" required>
+    <input class="inputStyle" type="text" maxlength="20" minlength="3" name="playerOneName" required>
     <label class="secondaryText" for="playerTwoName">Player two name:</label>
-    <input class="inputStyle" type="text" name="playerTwoName" required>
+    <input class="inputStyle" type="text" maxlength="20" minlength="3" name="playerTwoName" required>
 
     <label class="secondaryText" for="nDimension">Columns count:</label>
     <input class="inputStyle" type="number" name="nDimension" min="4" max="10" required>

@@ -5,7 +5,9 @@ const winnerView = (winner, points) => html`
 
 <div id="confetti-container"></div>
 
-<p class="title winnersPageTitle">The winner is ${winner} with a score of: ${points}</p>
+${winner=="draw"? html`<p class="title winnersPageTitle">Draw with a score of: ${points}</p>`: html`<p class="title winnersPageTitle">The winner is ${winner} with a score of: ${points}</p>`}
+
+
 
 
 <a href="/chooseMode">
@@ -34,6 +36,9 @@ export async function showWinner(ctx) {
     let winnerName = localStorage.playerWinner;
     
     localStorage.clear();
+    history.pushState(null, null, '/');
+
+
     ctx.render(winnerView(winnerName, bestScore));
 
 }

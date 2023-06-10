@@ -8,6 +8,7 @@ import { showSettings } from './views/settingsView.js';
 import { showMultiPlayerGame } from './views/multiplayer.js'
 import { showSinglePlayerGame } from './views/singlePlayer.js'
 import { showWinner } from './views/winnerView.js';
+import { showStatsView } from './views/statsView.js';
 
 
 page(contextDecorator)
@@ -19,6 +20,7 @@ page('/settingSinglePlayer', showSettingSinglePlayer);
 page('/settings', showSettings);
 page('/singlePlayer', showSinglePlayerGame);
 page('/multiPlayer', showMultiPlayerGame);
+page('/stats', showStatsView);
 page('/winner', showWinner);
 let mainElement = document.getElementById("mainPage");
 let audioElement = document.getElementById("myAudio");

@@ -13,6 +13,15 @@ const homeView = (theme) => html`
             Start Game
         </button>
     </a>
+    <a href="/stats">
+        <button class="gameButton" id="game">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Game Stats
+        </button>
+    </a>
     <a href="/help">
         <button class="gameButton" id="help">
             <span></span>
@@ -38,7 +47,7 @@ const homeView = (theme) => html`
             <img src="/resources//instagram.png" alt="" width="20" height="20">
         </div>
     </a>
-    <a href="https://github.com/VladimirKotsev/Az-Moga-Tuk-I-Sega">
+    <a href="https://github.com/ludsmotika/AzMogaTukISega/tree/main/MathTricks-KonBekon">
         <div class="socials" id="github">
             <img src="/resources/github.png" alt="" width="20" height="20">
         </div>

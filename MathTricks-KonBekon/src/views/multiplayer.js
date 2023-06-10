@@ -1,4 +1,5 @@
 import { html, page } from '../library.js';
+import { addLastGame } from '../api/firebase.js';
 
 let multiplayerView = (gameData, matrixElement, firstPlayerScore, secondPlayerScore) => html`
 <section class="gameSection">
@@ -76,10 +77,6 @@ export async function showMultiPlayerGame(ctx) {
         let clickedTd = document.getElementById(clickedTdCoordinates);
         let allAllowedFields = allowedFields(currentPlayerCoordinates[0], currentPlayerCoordinates[1], gameData);
 
-        for (const field of allAllowedFields) {
-            console.log(field);
-        }
-
         if (allAllowedFields.includes(clickedTdCoordinates)) {
 
             //check which class to set based on the player
@@ -110,11 +107,17 @@ export async function showMultiPlayerGame(ctx) {
                 localStorage.setItem('bestScore', gameData.playerOneScore);
                 localStorage.setItem('playerWinner', gameData.playerOneName);
             }
+            else if(gameData.playerOneScore == gameData.playerTwoScore){
+                localStorage.setItem('bestScore', gameData.playerOneScore);
+                localStorage.setItem('playerWinner', "draw");
+            }
             else {
                 localStorage.setItem('bestScore', gameData.playerTwoScore);
                 localStorage.setItem('playerWinner', gameData.playerTwoName);
             }
 
+
+            await addLastGame(gameData.playerOneName, gameData.playerTwoName, gameData.playerOneScore, gameData.playerTwoScore);
             page.redirect('/winner');
         }
         //click only on them 
