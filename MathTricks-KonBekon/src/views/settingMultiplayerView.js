@@ -43,7 +43,6 @@ export async function showSettingMultiplayer(ctx) {
         
         localStorage.setItem('gameData', JSON.stringify(formObject));
         page.redirect('/multiplayer');
-        //validation
 
     }
 }

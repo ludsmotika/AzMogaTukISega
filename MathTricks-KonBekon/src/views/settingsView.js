@@ -1,6 +1,6 @@
 import { html } from '../library.js';
 
-let settingsView = () => html`
+let settingsView = (isPaused,volValue) => html`
 <div>
    
     <h3 class="title titleSettingsPage">Settings</h3>
@@ -8,11 +8,11 @@ let settingsView = () => html`
     <br>
 
     <h2 class="secondaryText">Background Music</h2> 
-      <img id="muteMusicImg" class="settingsSoundOnImg" src="../../resources/soundOff.png">
+      <img id="muteMusicImg" class="settingsSoundOnImg" src="${isPaused ? '../../resources/soundOff.png' : '../../resources/soundOn.png'}">
     <h2 class="secondaryText">Volume</h2>
 
     <div class="sliderContainerSettingsPage">
-        <input type="range" id="volumeSlider" min="0" max="100" step="1" value="50">
+        <input type="range" id="volumeSlider" min="0" max="100" step="1" value="${volValue*100}">
     </div>
 
     <a href="/">
@@ -29,13 +29,19 @@ let settingsView = () => html`
 `;
 
 export async function showSettings(ctx) {
-    ctx.render(settingsView(muteMusic));
+
+
+    let isPaused = ctx.audio.paused;
+    let volValue= ctx.audio.volume;
+    console.log(volValue);
+    ctx.render(settingsView(isPaused,volValue));
 
     let muteImgElement = document.getElementById("muteMusicImg");
     muteImgElement.addEventListener('click', muteMusic);
 
     let volumeSlider = document.getElementById("volumeSlider");
     volumeSlider.addEventListener("input", volumeChange);
+
 
     function muteMusic(e) {
         e.preventDefault();

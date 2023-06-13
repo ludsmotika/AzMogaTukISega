@@ -42,7 +42,6 @@ export async function showSettingSinglePlayer(ctx) {
         
         localStorage.setItem('gameData', JSON.stringify(formObject));
         page.redirect('/singlePlayer');
-        //validation
 
     }
 }
