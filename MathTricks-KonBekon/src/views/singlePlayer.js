@@ -1,4 +1,5 @@
 import { html, page } from '../library.js';
+import { setNewBestRecord } from '../api/firebase.js';
 
 let multiplayerView = (gameData, matrixElement, firstPlayerScore, secondPlayerScore) => html`
 <section class="gameSection">
@@ -93,13 +94,13 @@ export async function showSinglePlayerGame(ctx) {
 
                     if (newScore > bestScore) {
                         bestTdToClick = td.id;
-                        bestScore=newScore;
+                        bestScore = newScore;
                     }
                 }
 
                 //click the best td
 
-                let cell=document.getElementById(bestTdToClick);
+                let cell = document.getElementById(bestTdToClick);
 
                 gameData.playerTwoScore = bestScore;
                 cell.classList.add('tdClickPlayerTwo');
@@ -110,6 +111,7 @@ export async function showSinglePlayerGame(ctx) {
                 if (gameData.playerOneScore > gameData.playerTwoScore) {
                     localStorage.setItem('bestScore', gameData.playerOneScore);
                     localStorage.setItem('playerWinner', gameData.playerOneName);
+                    await setNewBestRecord(gameData.playerOneName, gameData.playerOneScore);
                 }
                 else {
                     localStorage.setItem('bestScore', gameData.playerTwoScore);
@@ -133,6 +135,7 @@ export async function showSinglePlayerGame(ctx) {
             if (gameData.playerOneScore > gameData.playerTwoScore) {
                 localStorage.setItem('bestScore', gameData.playerOneScore);
                 localStorage.setItem('playerWinner', gameData.playerOneName);
+                await setNewBestRecord(gameData.playerOneName, gameData.playerOneScore);
             }
             else {
                 localStorage.setItem('bestScore', gameData.playerTwoScore);

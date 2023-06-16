@@ -15,6 +15,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
 const dataRefMultiplayer = database.ref("/Scores/Multiplayer");
+const dataRefSinglePlayer = database.ref("/Scores/SinglePlayer");
 
 
 //functions to read and write data into the real-time database
@@ -47,7 +48,7 @@ export async function addLastGame(playerOneName, playerTwoName, playerOneScore, 
 
 export async function getLastMultiplayerGamesData() {
 
-    let lastGames=new Object();
+    let lastGames = new Object();
 
     await dataRefMultiplayer.once("value", async (snapshot) => {
         // The data snapshot contains the retrieved data
@@ -64,20 +65,30 @@ export async function getLastMultiplayerGamesData() {
 
 //singlePlayer
 
+//methods for adding best scores while playing versus the bot
+//check if it is in the top 10 scores and if it is add it to the best scores
+//save only the player name and his score
 
 export async function getTopScores() {
-    let data;
-    await ref.once("value").then((snapshot) => {
-        data = snapshot.val();
+
+    let bestScores = new Object();
+
+    await dataRefSinglePlayer.once("value", async (snapshot) => {
+        // The data snapshot contains the retrieved data
+        const data = await snapshot.val();
+        const scoresArray = [...Object.entries(data)];
+
+        bestScores = scoresArray;
     });
-    return data;
+
+    return bestScores;
 }
 
 
 export async function checkForNewBestScore(score) {
     let scores = await getTopScores();
-    const scoresArray = [...Object.entries(scores)];
-    let index = scoresArray.findIndex(x => x[1].score < score);
+    //const scoresArray = [...Object.entries(scores)];
+    let index = scores.findIndex(x => x[1].score < score);
     if (index != -1) {
         //we found new best score
         return true;
@@ -86,37 +97,51 @@ export async function checkForNewBestScore(score) {
 }
 
 
-export async function setNewBestRecord(name, score) {
+export async function setNewBestRecord(username, score) {
+
+    //check if this score has to be added
+    let toAdd = await checkForNewBestScore(score);
+
+    if(toAdd==false){
+        return;
+    }
+
+    //if true remove the worst score from the table
+    let scores = await getTopScores();
+
+    let worstScoreIndex = -1;
+    let worstScore = Number.MAX_SAFE_INTEGER;
+    let index=0;
+    for (const score of scores) {
+        if (score[1].score <= worstScore) {
+            worstScore = score[1].score;
+            worstScoreIndex=index;
+        }
+        index++;
+    }
+
+    database.ref(`/Scores/SinglePlayer/${scores[worstScoreIndex][0]}`).remove();
+
+
+    //add the new one 
+
 
     //logic for removing the worst score
 
     //choose from which category you have to get the best score
-    let scores = await getTopScores();
-    const scoresArray = [...Object.entries(scores)];
+    //let scores = await getTopScores();
+    //const scoresArray = [...Object.entries(scores)];
 
-    database.ref(`/gameScores/${scoresArray[indexOfMinScore][0]}`).remove();
-    database.ref(`/Scores//${scoresArray[indexOfMinScore][0]}`).remove();
+    //database.ref(`/Scores//${scoresArray[indexOfMinScore][0]}`).remove();
 
 
     //setting the new best score by category
 
     var data = {
-        name,
+        username,
         score
     }
 
-    var newData = ref.push();
+    var newData = dataRefSinglePlayer.push();
     newData.set(data);
-}
-
-
-export async function doesNameExist(name) {
-    let scores = await getTopScores();
-    const scoresArray = [...Object.entries(scores)];
-    for (const current of scoresArray) {
-        if (current[1].name == name) {
-            return true;
-        }
-    }
-    return false;
 }

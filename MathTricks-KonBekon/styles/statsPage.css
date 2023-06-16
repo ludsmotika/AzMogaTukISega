@@ -3,8 +3,17 @@
     width: 100;
 }
 
+.headingContainerStatsPage{
+    display: flex;
+}
+
+.returnAnchorStatsPage{
+    margin:20px;
+}
+
 .statsPageTitle {
-    font-size: 3.5vw;
+    font-size: 3vw;
+    width: 55%;
 }
 
 .statsTable {
